@@ -1,0 +1,39 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/secondaryDarkColor</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="labelStyle">@style/LabelStyle</item>
+        <item name="valueStyle">@style/ValueStyle</item>
+        <item name="android:listDivider">@drawable/list_divider</item>
+    </style>
+
+    <style name="TextViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:padding">@dimen/margin_tiny</item>
+    </style>
+
+    <style name="LabelStyle" parent="TextViewStyle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="android:padding">@dimen/margin_small</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ValueStyle" parent="TextViewStyle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="android:padding">@dimen/margin_small</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

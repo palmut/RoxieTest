@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="textAppearanceCaption" format="reference" />
+    <attr name="textAppearanceValue" format="reference" />
+    <attr name="labelStyle" format="reference" />
+    <attr name="valueStyle" format="reference" />
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Roxie Test</string>
+    <string name="label_start_address">Start Address:</string>
+    <string name="label_end_address">End Address:</string>
+    <string name="label_order_time">Order time:</string>
+    <string name="label_price">Price:</string>
+    <string name="order_details_title">Order: %1$s</string>
+</resources>

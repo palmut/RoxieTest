@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Roxie Test</string>
+    <string name="label_start_address">Начальный адрес:</string>
+    <string name="label_end_address">Конечный адрес:</string>
+    <string name="label_order_time">Время:</string>
+    <string name="label_price">Цена:</string>
+    <string name="order_details_title">Номер заказа: %1$s</string>
+</resources>
