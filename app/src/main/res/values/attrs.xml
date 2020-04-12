@@ -4,4 +4,5 @@
     <attr name="textAppearanceValue" format="reference" />
     <attr name="labelStyle" format="reference" />
     <attr name="valueStyle" format="reference" />
+    <attr name="subHeaderStyle" format="reference" />
 </resources>

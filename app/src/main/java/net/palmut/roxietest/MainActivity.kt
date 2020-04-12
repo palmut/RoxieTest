@@ -10,10 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import net.palmut.roxietest.net.Order
+import net.palmut.roxietest.net.OrdersRepository
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel by viewModels<OrdersVM>()
+    private val viewModel by viewModels<OrdersVM> {
+        OrderVMFactory(OrdersRepository)
+    }
 
     private val ordersAdapter = OrdersAdapter { order -> OrderDetailsActivity.showOrder(this, order) }
 

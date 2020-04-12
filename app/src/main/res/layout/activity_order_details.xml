@@ -14,8 +14,22 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/list_item_bg"
             android:padding="@dimen/margin_medium">
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/driverBarrier" />
+
+            <TextView
+                android:id="@+id/orderHeader"
+                style="?subHeaderStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/order_details_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/startAddressLabel"
@@ -24,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/label_start_address"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/orderHeader" />
 
             <TextView
                 android:id="@+id/startAddress"
@@ -93,6 +107,72 @@
                 app:layout_constraintStart_toEndOf="@id/labelsBarrier"
                 tools:text="@tools:sample/full_names" />
 
+            <TextView
+                android:id="@+id/vehicleHeader"
+                style="?subHeaderStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vehicle_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/priceBarrier" />
+
+            <TextView
+                android:id="@+id/modelLabel"
+                style="?labelStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_model"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vehicleHeader" />
+
+            <TextView
+                android:id="@+id/model"
+                style="?valueStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/modelLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/labelsBarrier"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:id="@+id/regNumberLabel"
+                style="?labelStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/modelBarrier" />
+
+            <TextView
+                android:id="@+id/regNumber"
+                style="?valueStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/regNumberLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/labelsBarrier"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:id="@+id/driverLabel"
+                style="?labelStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_driver"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/regNumberBarrier" />
+
+            <TextView
+                android:id="@+id/driver"
+                style="?valueStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBaseline_toBaselineOf="@id/driverLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/labelsBarrier"
+                tools:text="@tools:sample/full_names" />
+
             <androidx.constraintlayout.widget.Barrier
                 android:id="@+id/startAddressBarrier"
                 android:layout_width="wrap_content"
@@ -115,11 +195,40 @@
                 app:constraint_referenced_ids="orderTimeLabel,orderTime" />
 
             <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/priceBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="priceLabel,price" />
+
+            <androidx.constraintlayout.widget.Barrier
                 android:id="@+id/labelsBarrier"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:barrierDirection="end"
-                app:constraint_referenced_ids="startAddressLabel,endAddressLabel, orderTimeLabel, priceLabel" />
+                app:constraint_referenced_ids="startAddressLabel,endAddressLabel, orderTimeLabel, priceLabel, modelLabel, regNumberLabel, driverLabel" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/modelBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="modelLabel,model" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/regNumberBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="regNumberLabel,regNumber" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/driverBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="driverLabel,driver" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -133,7 +242,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:navigationIcon="@drawable/ic_action_back" />
 
     </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -5,4 +5,10 @@
     <string name="label_order_time">Order time:</string>
     <string name="label_price">Price:</string>
     <string name="order_details_title">Order: %1$s</string>
+    <string name="order_details_header">Order details</string>
+    <string name="vehicle_header">Vehicle</string>
+    <string name="label_model">Model:</string>
+    <string name="label_number">Number:</string>
+    <string name="label_driver">Driver:</string>
+
 </resources>

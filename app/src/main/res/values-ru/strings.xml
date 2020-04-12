@@ -6,4 +6,9 @@
     <string name="label_order_time">Время:</string>
     <string name="label_price">Цена:</string>
     <string name="order_details_title">Номер заказа: %1$s</string>
+    <string name="order_details_header">Детали заказа</string>
+    <string name="vehicle_header">Автомобиль</string>
+    <string name="label_model">Модель:</string>
+    <string name="label_number">Номер:</string>
+    <string name="label_driver">Водитель:</string>
 </resources>

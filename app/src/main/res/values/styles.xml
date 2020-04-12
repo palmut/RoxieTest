@@ -9,7 +9,9 @@
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="labelStyle">@style/LabelStyle</item>
         <item name="valueStyle">@style/ValueStyle</item>
+        <item name="subHeaderStyle">@style/SubHeaderStyle</item>
         <item name="android:listDivider">@drawable/list_divider</item>
+        <item name="colorControlNormal">@color/primaryTextColor</item>
     </style>
 
     <style name="TextViewStyle" parent="Widget.AppCompat.TextView">
@@ -25,6 +27,15 @@
     <style name="ValueStyle" parent="TextViewStyle">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
         <item name="android:padding">@dimen/margin_small</item>
+    </style>
+
+    <style name="SubHeaderStyle" parent="TextViewStyle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:paddingStart">@dimen/margin_small</item>
+        <item name="android:paddingEnd">@dimen/margin_small</item>
+        <item name="android:paddingTop">@dimen/margin_medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondaryDarkColor</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
