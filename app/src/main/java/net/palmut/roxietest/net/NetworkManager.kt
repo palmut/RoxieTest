@@ -26,15 +26,17 @@ object NetworkManager {
         }.build()
     }
 
-    val ordersApi: OrdersAPI = Retrofit.Builder().apply {
-        baseUrl(ORDERS_API_URL)
-        client(okHttpClient)
-        MediaType
-        addConverterFactory(
-            Json(
-                JsonConfiguration(
-                    encodeDefaults = false, isLenient = true)).asConverterFactory("application/json".toMediaType()))
-    }.build().create(OrdersAPI::class.java)
+    val ordersApi: OrdersAPI by lazy {
+        Retrofit.Builder().apply {
+            baseUrl(ORDERS_API_URL)
+            client(okHttpClient)
+            MediaType
+            addConverterFactory(
+                Json(
+                    JsonConfiguration(
+                        encodeDefaults = false, isLenient = true)).asConverterFactory("application/json".toMediaType()))
+        }.build().create(OrdersAPI::class.java)
+    }
 
 
 }

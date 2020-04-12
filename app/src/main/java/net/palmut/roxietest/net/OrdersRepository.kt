@@ -3,6 +3,7 @@ package net.palmut.roxietest.net
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
+import java.io.FileNotFoundException
 import java.io.InputStream
 import java.net.HttpURLConnection
 
@@ -11,10 +12,32 @@ interface OrdersRepositoryInterface {
     suspend fun getImage(imageName: String): RepositoryResult<InputStream>
 }
 
-object OrdersRepository : OrdersRepositoryInterface {
+open class OrdersRepository : OrdersRepositoryInterface {
     override suspend fun getOrders(): RepositoryResult<List<Order>> = tryRequest { NetworkManager.ordersApi.getOrders() }
     override suspend fun getImage(imageName: String): RepositoryResult<InputStream> = tryRequest {
         NetworkManager.ordersApi.getImage(imageName).byteStream()
+    }
+}
+
+class CachedOrdersRepository(private val cache: CacheInterface) : OrdersRepository() {
+    override suspend fun getImage(imageName: String): RepositoryResult<InputStream> {
+        try {
+            val cached = cache.get(imageName)
+            if (cached != null) {
+                return RepositoryResult.Success(cached)
+            } else {
+                when (val downloadResult = super.getImage(imageName)) {
+                    is RepositoryResult.Success -> {
+                        cache.put(imageName, downloadResult.data)
+                        cache.get(imageName)?.also { return RepositoryResult.Success(it) }
+                    }
+                    else -> return downloadResult
+                }
+            }
+        } catch (e: Exception) {
+            return RepositoryResult.Error(e)
+        }
+        return RepositoryResult.Error(FileNotFoundException())
     }
 }
 

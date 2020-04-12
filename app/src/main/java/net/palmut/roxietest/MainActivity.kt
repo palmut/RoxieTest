@@ -15,7 +15,7 @@ import net.palmut.roxietest.net.OrdersRepository
 class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<OrdersVM> {
-        OrderVMFactory(OrdersRepository)
+        OrderVMFactory(OrdersRepository())
     }
 
     private val ordersAdapter = OrdersAdapter { order -> OrderDetailsActivity.showOrder(this, order) }

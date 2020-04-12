@@ -9,15 +9,14 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_order_details.*
-import net.palmut.roxietest.net.Order
-import net.palmut.roxietest.net.OrdersRepository
-import net.palmut.roxietest.net.toExtra
-import net.palmut.roxietest.net.toOrder
+import net.palmut.roxietest.net.*
 
 class OrderDetailsActivity : AppCompatActivity() {
 
     private lateinit var order: Order
-    private val viewModel by viewModels<OrdersVM> { OrderVMFactory(OrdersRepository) }
+    private val viewModel by viewModels<OrdersVM> {
+        OrderVMFactory(CachedOrdersRepository((this.application as RoxieTestApplication).cache))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
